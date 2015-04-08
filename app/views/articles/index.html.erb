@@ -1,9 +1,9 @@
 <h1>Listing articles</h1>
 
 <%=form_tag articles_path,method:"get" do%>
-title<%=text_field_tag :title%>
-text<%=text_field_tag :text%>
-description<%=text_field_tag :description%>
+課程名稱<%=text_field_tag :title%>
+授課教師<%=text_field_tag :text%>
+上課時間<%=text_field_tag :description%>
 <%=submit_tag "search"%><br>
 
 <% end %>   
@@ -11,9 +11,9 @@ description<%=text_field_tag :description%>
 <%= link_to 'New article', new_article_path %>
 <table>
   <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th>description</th>
+    <th>課程名稱</th>
+    <th>授課教師</th>
+    <th>上課時間</th>
     <th colspan="3"></th>
   </tr>
  

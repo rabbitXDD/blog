@@ -5,10 +5,10 @@ class ArticlesController < ApplicationController
     @articles=@articles.where("title like?","%#{params[:title]}%")
     end
     if params[:text].present?
-    @articles=@articles.where("content like?","%#{params[:text]}%")
+    @articles=@articles.where("text like?","%#{params[:text]}%")
     end
     if params[:description].present?
-    @articles=@articles.where("content like?","%#{params[:description]}%")
+    @articles=@articles.where("description like?","%#{params[:description]}%")
     end    
   end
   def show
