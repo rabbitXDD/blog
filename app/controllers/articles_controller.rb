@@ -4,14 +4,17 @@ class ArticlesController < ApplicationController
     if params[:title].present?
     @articles=@articles.where("title like?","%#{params[:title]}%")
     end
-    if params[:content].present?
-    @articles=@articles.where("content like?","%#{params[:content]}%")
+    if params[:text].present?
+    @articles=@articles.where("content like?","%#{params[:text]}%")
     end
+    if params[:description].present?
+    @articles=@articles.where("content like?","%#{params[:description]}%")
+    end    
   end
   def show
     @article = Article.find(params[:id])
   end
-  def new
+  def new 
   	@article = Article.new
   end	
 def edit
@@ -44,22 +47,6 @@ end
  
 private
   def article_params
-    params.require(:article).permit(:title, :text)
+    params.require(:article).permit(:title, :text, :description)
   end
-end
-
-class Event < ActiveRecord::Base 
-  #... 
-  def title
-  # 根據其他屬性的值或條件，來決定這個欄位的值 
-  end 
-  def title=(value) 
-  # 根據value，來調整其他屬性的值 
-  end 
-  def text
-  # 根據其他屬性的值或條件，來決定這個欄位的值 
-  end 
-  def text=(value) 
-  # 根據value，來調整其他屬性的值 
-  end 
 end
